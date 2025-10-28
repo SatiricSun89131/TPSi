@@ -54,7 +54,7 @@
       vertical-align: top;
     }
 
-    /* Colonne adattive */
+        /* Colonne adattive corrette */
     th:nth-child(1),
     td:nth-child(1),
     th:nth-child(2),
@@ -62,8 +62,16 @@
     th:nth-child(4),
     td:nth-child(4) {
       width: auto;
-      white-space: nowrap;
+      white-space: normal; /* permette il wrapping */
     }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      table-layout: auto; /* lascia al browser decidere le larghezze */
+    }
+
 
     th:nth-child(3),
     td:nth-child(3) {
