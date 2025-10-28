@@ -1,11 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diego Valle</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub dei Lavori - Valle</title>
+  <style>
+    /* ===== Dark Mode Style ===== */
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0d47a1, #1e88e5);
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #cfd8dc;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #1e1e1e;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+    }
+
+    th {
+      background-color: #263238;
+      color: #90caf9;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      border-bottom: 2px solid #1565c0;
+    }
+
+    tr {
+      border-bottom: 1px solid #333;
+    }
+
+    tr:hover {
+      background-color: #2c2c2c;
+      transition: background-color 0.2s ease;
+    }
+
+    a {
+      color: #64b5f6;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #bbdefb;
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      color: #999;
+      margin: 30px 0 15px;
+      font-size: 0.9rem;
+    }
+
+    /* Mobile-friendly adjustments */
+    @media (max-width: 600px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #333;
+      }
+
+      th {
+        display: none;
+      }
+
+      td {
+        padding: 10px;
+        border: none;
+      }
+
+      td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #90caf9;
+        display: block;
+        margin-bottom: 4px;
+      }
+    }
+  </style>
 </head>
 <body>
-    
+
+  <header>
+    <h1>Hub dei Lavori di Valle</h1>
+    <p>Raccolta di tutti i progetti e compiti da consegnare</p>
+  </header>
+
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome del lavoro</th>
+          <th>Data</th>
+          <th>Commento</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+          <td data-label="Nome del lavoro">Anagrafica 1.0</td>
+          <td data-label="Data">30/09/2025</td>
+          <td data-label="Commento">Realizzare un file html contenente un elenco di "input type="text" che permettano ad un utente di inserire nome, cognome e indirizzo.
+              Tramite la selezione di un tasto (onclick) stampare i dati registrati in un div separato che compare quando compilato il primo riquadro.</td>
+          <td data-label="Link"><a href="#">Apri</a></td>
+        </tr>
+          <tr>
+          <td data-label="Nome del lavoro">Anagrafica 1.1</td>
+          <td data-label="Data">14/10/2025</td>
+          <td data-label="Commento">Si realizzi uno script Javascript che permetta di inserire un'anagrafica utente che comprenda: 
+Nome
+Cognome
+Indirizzo
+CItta
+CAP
+Età.
+Inserendo una data di nascita fittizia il sistema dovrà restituire l'appartenenza alla generazione dedicata 
+Le principali generazioni, in ordine cronologico, sono: Baby Boomers  (1946-1964), Generazione X  (1965-1980), Millenials  (1981-1996), Generazione Z (1997-2012) e  Generazione Alpha (dal 2013 in poi). Ci sono anche generazioni più anziane, come la Generazione Silenziosa (1928-1945) e la Greatest Generation (1901-1927).</td>
+          <td data-label="Link"><a href="#">Apri</a></td>
+        </tr>
+        <tr>
+          <td data-label="Nome del lavoro">Anagrafica 2.0</td>
+          <td data-label="Data">21/10/2025</td>
+          <td data-label="Commento">ripetere l'esercizio precedente inserendo i valori prelevati dall'input in un vettore di stringhe.</td>
+          <td data-label="Link"><a href="#">Apri</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    <p>Creato da Valle – ITIS 2025</p>
+  </footer>
+
 </body>
 </html>
