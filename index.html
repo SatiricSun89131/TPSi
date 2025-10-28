@@ -51,11 +51,10 @@
     th, td {
       text-align: left;
       padding: 12px;
-      word-wrap: break-word;
       vertical-align: top;
     }
 
-    /* Le colonne 1, 2 e 4 si adattano al contenuto */
+    /* Colonne adattive */
     th:nth-child(1),
     td:nth-child(1),
     th:nth-child(2),
@@ -66,10 +65,10 @@
       white-space: nowrap;
     }
 
-    /* La colonna del commento occupa lo spazio rimanente */
     th:nth-child(3),
     td:nth-child(3) {
       width: 100%;
+      word-wrap: break-word;
     }
 
     th {
@@ -84,8 +83,9 @@
       border-bottom: 1px solid #333;
     }
 
+    /* Hover righe */
     tr:hover {
-      background-color: #2c2c2c;
+      background-color: #2a3b1f;
       transition: background-color 0.2s ease;
     }
 
@@ -181,12 +181,25 @@
           </td>
           <td data-label="Link"><a href="https://valle-diego.github.io/TPSi/Esercizio21_10_2025/index.html">Apri</a></td>
         </tr>
+        <tr>
+          <td data-label="Nome del lavoro">Esercizio vettori</td>
+          <td data-label="Data">28/10/2025</td>
+          <td data-label="Commento">
+            Scrivi un programma in JavaScript che:<br>
+            - Crea un array di numeri (indice 100) con Math.random() compresi tra -100 e 100.<br>
+            - Calcola la media dei numeri.<br>
+            - Trova il massimo e il minimo.<br>
+            - Crea un vettore contenente solo i numeri pari maggiori di 50.<br>
+            L'output dovrà essere rappresentato da una griglia in HTML.
+          </td>
+          <td data-label="Link"><a href="https://valle-diego.github.io/TPSi/Esercizio28_10_2025/index.html">Apri</a></td>
+        </tr>
       </tbody>
     </table>
   </main>
 
   <footer>
-    <p>Creato da Valle – ITIS 2025</p>
+    <p>Creato da Diego Valle – ITIS STANISLAO CANNIZZARO 2025</p>
   </footer>
 
 </body>
