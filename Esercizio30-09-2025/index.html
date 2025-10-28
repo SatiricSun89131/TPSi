@@ -6,33 +6,24 @@
   <link rel="stylesheet" href="stile.css">
 </head>
 <body>
-  <h2>Inserisci i tuoi dati</h2>
 
-  <div class="container">
-    <div class="input-area">
-      <div>
-        <label>
-          Nome: 
-          <input type="text" id="nome">
-        </label>
-      </div>
+  <div class="card">
+    <div class="form-area">
+      <h2>Inserisci i tuoi dati</h2>
 
-      <div>
-        <label>
-          Cognome: 
-          <input type="text" id="cognome">
-        </label>
-      </div>
+      <div class="input-grid">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome">
 
-      <div>
-        <label>
-          Indirizzo: 
-          <input type="text" id="indirizzo">
-        </label>
-      </div>
+        <label for="cognome">Cognome:</label>
+        <input type="text" id="cognome">
 
-      <div>
-        <button onclick="stampaDati()">Invia</button>
+        <label for="indirizzo">Indirizzo:</label>
+        <input type="text" id="indirizzo">
+
+        <div class="actions">
+          <button onclick="stampaDati()">Invia</button>
+        </div>
       </div>
     </div>
 
@@ -49,14 +40,15 @@
         const outputDiv = document.getElementById("output");
         outputDiv.style.display = "block";
         outputDiv.innerHTML = `
-          <div>Nome: ${nome}</div>
-          <div>Cognome: ${cognome}</div>
-          <div>Indirizzo: ${indirizzo}</div>
+          <div><strong>Nome:</strong> ${nome}</div>
+          <div><strong>Cognome:</strong> ${cognome}</div>
+          <div><strong>Indirizzo:</strong> ${indirizzo}</div>
         `;
       } else {
         alert("Compila almeno il campo Nome per continuare!");
       }
     }
   </script>
+
 </body>
 </html>
