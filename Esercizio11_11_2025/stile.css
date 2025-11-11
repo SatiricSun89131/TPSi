@@ -17,73 +17,67 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 60px;
+  flex-wrap: wrap;
+  gap: 40px;
   background: #ffffff;
   padding: 36px 44px;
   border-radius: 16px;
   box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-  max-width: 1000px;
+  max-width: 900px;
   width: calc(100% - 60px);
   margin: 0 auto;
-  flex-wrap: wrap;
 }
 
 .form-area {
-  min-width: 420px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 400px;
   gap: 18px;
 }
 
 h2 {
-  margin: 0 0 6px 0;
+  margin: 0 0 10px 0;
   font-size: 28px;
-  text-align: left;
+  text-align: center;
 }
 
 .input-grid {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 14px 18px;
-  align-items: center;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
-.input-grid label {
-  justify-self: start;
+label {
   font-weight: 700;
   font-size: 20px;
 }
 
-.input-grid input[type="text"],
-.input-grid input[type="number"],
-.input-grid select,
-.input-grid select[multiple] {
+input[type="text"],
+input[type="number"],
+select {
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
   border: 2px solid #bfbfbf;
-  font-size: 20px;
+  font-size: 18px;
   box-sizing: border-box;
 }
 
-.input-grid input[type="radio"],
-.input-grid input[type="checkbox"] {
-  width: auto;
-  margin-right: 6px;
+input[type="radio"],
+input[type="checkbox"] {
   transform: scale(1.2);
+  margin-right: 6px;
   cursor: pointer;
 }
 
 .input-grid div {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
+  gap: 10px 16px;
 }
 
 .actions {
-  grid-column: 1 / -1;
   margin-top: 12px;
 }
 
@@ -122,32 +116,11 @@ button:hover {
   margin: 8px 0;
 }
 
-/* Responsive */
 @media (max-width: 880px) {
   .card {
     flex-direction: column;
     gap: 18px;
     padding: 28px;
     align-items: center;
-  }
-
-  .form-area { 
-    min-width: 0; 
-    width: 100%; 
-  }
-
-  #output { 
-    width: 100%; 
-    max-width: none; 
-    align-self: center; 
-  }
-
-  .input-grid {
-    grid-template-columns: 1fr;
-    gap: 12px 0;
-  }
-
-  .input-grid label {
-    font-size: 18px;
   }
 }
