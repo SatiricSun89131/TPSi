@@ -183,11 +183,10 @@
           </div>
         </div>
         
-        <!-- Materie (scelta multipla) -->
+        <!-- Materie preferite (listbox multipla, max 3) -->
         <div class="input-row">
-          <label for="materie">Materia preferita:</label>
-          <select id="materie">
-            <option value="">-- Seleziona --</option>
+          <label for="materie">Materie preferite (max 3):</label>
+          <select id="materie" multiple size="6">
             <option value="Educazione civica">Educazione civica</option>
             <option value="Informatica">Informatica</option>
             <option value="Lingua e Letteratura Italiana">Lingua e Letteratura Italiana</option>
@@ -201,6 +200,7 @@
             <option value="Telecomunicazioni">Telecomunicazioni</option>
           </select>
         </div>
+
         
         <div class="actions">
           <button onclick="stampaDati()">Invia</button>
@@ -231,11 +231,15 @@
       if (user.mezzi.length === 0) user.mezzi = ["Nessuno"];
 
       let materieSel = Array.from(document.getElementById("materie").selectedOptions).map(opt => opt.value);
+
+      // Limite massimo 3 materie
       if (materieSel.length > 3) {
         alert("Puoi selezionare al massimo 3 materie!");
         return;
       }
+      
       user.materie = materieSel.length ? materieSel : ["Nessuna"];
+
 
 
       if (!user.nome || !user.cognome || user.anno === "") {
