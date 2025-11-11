@@ -25,6 +25,7 @@ body {
   max-width: 1000px;
   width: calc(100% - 60px);
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
 .form-area {
@@ -55,7 +56,9 @@ h2 {
 }
 
 .input-grid input[type="text"],
-.input-grid input[type="number"] {
+.input-grid input[type="number"],
+.input-grid select,
+.input-grid select[multiple] {
   width: 100%;
   padding: 10px 12px;
   border-radius: 8px;
@@ -64,9 +67,24 @@ h2 {
   box-sizing: border-box;
 }
 
+.input-grid input[type="radio"],
+.input-grid input[type="checkbox"] {
+  width: auto;
+  margin-right: 6px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.input-grid div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
 .actions {
   grid-column: 1 / -1;
-  margin-top: 6px;
+  margin-top: 12px;
 }
 
 button {
@@ -79,6 +97,7 @@ button {
   background: #0078d7;
   color: white;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
 button:hover {
@@ -103,20 +122,32 @@ button:hover {
   margin: 8px 0;
 }
 
+/* Responsive */
 @media (max-width: 880px) {
   .card {
     flex-direction: column;
     gap: 18px;
     padding: 28px;
     align-items: center;
-    .form-area { 
-      min-width: 0; 
-      width: 100%; 
-    }
-    #output { 
-      width: 100%; 
-      max-width: none; 
-      align-self: center; 
-    }
+  }
+
+  .form-area { 
+    min-width: 0; 
+    width: 100%; 
+  }
+
+  #output { 
+    width: 100%; 
+    max-width: none; 
+    align-self: center; 
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
+    gap: 12px 0;
+  }
+
+  .input-grid label {
+    font-size: 18px;
   }
 }
