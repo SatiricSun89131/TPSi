@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <title>Stella in un cerchio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="canvas" width="400" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    function draw() {
+      const cx = canvas.width / 2;
+      const cy = canvas.height / 2;
+      const r = 180;
+
+      ctx.beginPath();
+      ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.stroke();
+
+      const points = 5;
+      const outerR = r;
+      const innerR = r * 0.5;
+      const rot = -Math.PI / 2;
+
+      ctx.beginPath();
+      for (let i = 0; i < points * 2; i++) {
+        const ang = rot + (i * Math.PI) / points;
+        let radius;
+        if (i % 2 === 0) {
+          radius = outerR;
+        } else {
+          radius = innerR;
+        }
+
+        const x = cx + Math.cos(ang) * radius;
+        const y = cy + Math.sin(ang) * radius;
+
+        if (i === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+      ctx.closePath();
+      ctx.stroke();
+    }
+
+    draw();
+  </script>
+</body>
+</html>
