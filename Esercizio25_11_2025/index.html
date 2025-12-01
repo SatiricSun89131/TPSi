@@ -1,55 +1,30 @@
-<!doctype html>
-<html lang="it">
+<html>
 <head>
-  <meta charset="utf-8" />
-  <title>Stella in un cerchio</title>
-  <link rel="stylesheet" href="stile.css" />
+    <link rel="stylesheet" href="stile.css">
 </head>
+
 <body>
-  <canvas id="canvas" width="400" height="400"></canvas>
 
-  <script>
-    const canvas = document.getElementById("canvas");
-    const ctx = canvas.getContext("2d");
+<canvas id="myCanvas" width="300" height="150"></canvas>
 
-    function draw() {
-      const cx = canvas.width / 2;
-      const cy = canvas.height / 2;
-      const r = 180;
+<script>
+var c = document.getElementById("myCanvas");
+var ctx1 = c.getContext("2d");
 
-      ctx.beginPath();
-      ctx.arc(cx, cy, r, 0, Math.PI * 2);
-      ctx.stroke();
+ctx1.beginPath();
+ctx1.moveTo(150, 10);
+ctx1.lineTo(200, 130);
+ctx1.lineTo(100, 60);
+ctx1.lineTo(250, 60);
+ctx1.lineTo(150, 130);
+ctx1.lineTo(150, 10);
+ctx1.stroke();
 
-      const points = 5;
-      const outerR = r;
-      const innerR = r * 0.5;
-      const rot = -Math.PI / 2;
+// cerchio più grande
+ctx1.beginPath();
+ctx1.arc(150, 75, 70, 0, 2 * Math.PI);
+ctx1.stroke();
+</script>
 
-      ctx.beginPath();
-      for (let i = 0; i < points * 2; i++) {
-        const ang = rot + (i * Math.PI) / points;
-        let radius;
-        if (i % 2 === 0) {
-          radius = outerR;
-        } else {
-          radius = innerR;
-        }
-
-        const x = cx + Math.cos(ang) * radius;
-        const y = cy + Math.sin(ang) * radius;
-
-        if (i === 0) {
-          ctx.moveTo(x, y);
-        } else {
-          ctx.lineTo(x, y);
-        }
-      }
-      ctx.closePath();
-      ctx.stroke();
-    }
-
-    draw();
-  </script>
 </body>
 </html>
