@@ -5,80 +5,41 @@
     <link rel="stylesheet" href="stile.css">
 </head>
 <body>
-    <h1>Femminicidi 2024</h1>
-    <canvas id="grafico" width="800" height="400"></canvas>
 
-    <script>
-    // Dati
-    const mesi = ["Gen", "Feb", "Mar", "Apr", "Mag", "Giu", "Lug", "Ago", "Set", "Ott", "Nov", "Dic"];
-    const dati = [11, 9, 10, 10, 11, 13, 14, 13, 9, 10, 13, 13];
+<canvas id="grafico" width="800" height="400"></canvas>
 
-    const canvas = document.getElementById('grafico');
-    const ctx = canvas.getContext('2d');
+<script>
+// Dati femminicidi per mese
+const dati = [11, 9, 10, 10, 11, 13, 14, 13, 9, 10, 13, 13];
 
-    // Margini per lasciare spazio alle etichette
-    const margineX = 50;
-    const margineY = 50;
+const canvas = document.getElementById('grafico');
+const ctx = canvas.getContext('2d');
 
-    // Troviamo il massimo dei dati per scalare l'asse Y
-    const maxVal = Math.max(...dati);
+// Margini per non incollare la linea ai bordi
+const margineX = 40;
+const margineY = 40;
 
-    // Funzione per trasformare i dati in coordinate
-    const coordinate = dati.map((val, i) => {
-        const x = margineX + i * ((canvas.width - 2*margineX) / (dati.length - 1));
-        const y = canvas.height - margineY - (val / maxVal) * (canvas.height - 2*margineY);
-        return {x, y};
-    });
+const maxVal = Math.max(...dati);
 
-    // Disegniamo l'asse X e Y
-    ctx.beginPath();
-    ctx.moveTo(margineX, 0);
-    ctx.lineTo(margineX, canvas.height - margineY);
-    ctx.lineTo(canvas.width, canvas.height - margineY);
-    ctx.strokeStyle = "#000";
-    ctx.lineWidth = 2;
-    ctx.stroke();
+// Trasformiamo i dati in coordinate
+const coordinate = dati.map((val, i) => {
+    const x = margineX + i * ((canvas.width - 2*margineX) / (dati.length - 1));
+    const y = canvas.height - margineY - (val / maxVal) * (canvas.height - 2*margineY);
+    return { x, y };
+});
 
-    // Disegniamo il grafico
-    ctx.beginPath();
-    ctx.moveTo(coordinate[0].x, coordinate[0].y);
-    for (let i = 1; i < coordinate.length; i++) {
-        ctx.lineTo(coordinate[i].x, coordinate[i].y);
-    }
-    ctx.strokeStyle = "red";
-    ctx.lineWidth = 2;
-    ctx.stroke();
+// Disegniamo il grafico
+ctx.beginPath();
+ctx.moveTo(coordinate[0].x, coordinate[0].y);
 
-    // Puntini sui dati
-    coordinate.forEach(point => {
-        ctx.beginPath();
-        ctx.arc(point.x, point.y, 4, 0, Math.PI * 2);
-        ctx.fillStyle = "blue";
-        ctx.fill();
-    });
+for (let i = 1; i < coordinate.length; i++) {
+    ctx.lineTo(coordinate[i].x, coordinate[i].y);
+}
 
-    // Etichette asse X (mesi)
-    ctx.fillStyle = "#000";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "top";
-    coordinate.forEach((point, i) => {
-        ctx.fillText(mesi[i], point.x, canvas.height - margineY + 5);
-    });
+ctx.strokeStyle = "red";
+ctx.lineWidth = 2;
+ctx.stroke();
+</script>
 
-    // Etichette asse Y (valori)
-    ctx.textAlign = "right";
-    ctx.textBaseline = "middle";
-    const stepY = 2; // etichette ogni 2 femminicidi
-    for(let v = 0; v <= maxVal; v += stepY){
-        const y = canvas.height - margineY - (v / maxVal) * (canvas.height - 2*margineY);
-        ctx.fillText(v, margineX - 5, y);
-        // linee orizzontali guida
-        ctx.beginPath();
-        ctx.moveTo(margineX - 3, y);
-        ctx.lineTo(margineX, y);
-        ctx.stroke();
-    }
-
-    </script>
 </body>
 </html>
